@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { 
     BrowserRouter as Router,
     Route
@@ -16,22 +16,28 @@ import Subscribe from '../Subscribe';
 
 import * as ROUTES from '../../constants/routes';
 
-const App = () => (
-    <Router>
-        <div>
-            <Navigation />
-            <hr />
+class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            authUser: null
+        };
+    }
+
+    render() { 
+        return (
+            <Router>
+                <div>
+                    <Navigation authUser={ this.state.authUser }/>
+                    <hr />
             
-            <Route exact path={ ROUTES.LANDING } component={ Landing } />
-            <Route path={ ROUTES.SIGN_UP } component={ SignUp } />
-            <Route path={ ROUTES.SIGN_IN } component={ SignIn } />
-            {/* <Route path={ ROUTES.SUBSCRIBE } component={ Subscribe } /> */}
-            {/* <Route path={ ROUTES.PASSWORD_FORGET } component={ PasswordForget } /> */}
-            {/* <Route path={ ROUTES.LOG_ROUTINES } component={ LogRoutines } /> */}
-            {/* <Route path={ ROUTES.ADMIN_ROUTINES } component={ AdminRoutines } /> */}
-            {/* <Route path={ ROUTES.CHECK_ROUTINES } component={ CheckRoutines } /> */}
-        </div>
-    </Router>
-);
+                    <Route exact path={ ROUTES.LANDING } component={ Landing } />
+                    <Route path={ ROUTES.SIGN_UP } component={ SignUp } />
+                    <Route path={ ROUTES.SIGN_IN } component={ SignIn } />
+                </div>
+            </Router>
+        );
+    }
+}
 
 export default App;
