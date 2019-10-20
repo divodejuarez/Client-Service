@@ -4,36 +4,35 @@ import { Link } from 'react-router-dom';
 import SignOutButton from '../SignOut';
 import * as ROUTES from '../../constants/routes';
 
-const Navigation = () => (
+const Navigation = ({ authUser }) => (
+    <div>{ authUser ? <NavigationAuth /> :<NavigationNonAuth /> }</div>
+);
+
+const NavigationAuth = () => (
     <div>
         <ul>
-            {/* <li>
-                <Link to={ ROUTES.LANDING }>Landing</Link>
-            </li> */}
             <li>
-                <Link to={ ROUTES.SIGN_IN }> Sign In</Link>
+                <Link to={ROUTES.HOME}>Home</Link>
             </li>
             <li>
-                <Link to={ ROUTES.SIGN_UP }>Sign Up</Link>
+                <Link to={ROUTES.ACCOUNT}>Account</Link>
+            </li>
+            <li>
+                <Link to={ROUTES.SUBSCRIBE}>Subscribe Client</Link>
             </li>
             <li>
                 <SignOutButton />
             </li>
-            {/* <li>
-                <Link to={ ROUTES.SUBSCRIBE }>Subscribe</Link>
-            </li>
+        </ul>
+    </div>
+);
+
+const NavigationNonAuth = () =>  (
+    <div>
+        <ul>
             <li>
-                <Link to={ ROUTES.ADMIN_ROUTINES }>Admin Routines</Link>
+                
             </li>
-            <li>
-                <Link to={ ROUTES.CHECK_ROUTINES }>Check Routines</Link>
-            </li>
-            <li>
-                <Link to={ ROUTES.LOG_ROUTINES }>Log Routines</Link>
-            </li>
-            <li>
-                <Link to={ ROUTES.PASSWORD_FORGET }>Password Forget</Link>
-            </li> */}
         </ul>
     </div>
 );

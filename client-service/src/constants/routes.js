@@ -7,3 +7,4 @@ export const ADMIN_ROUTINES = '/admin-routines';
 export const CHECK_ROUTINES = '/check-routines';
 export const LOG_ROUTINES = '/log-routines';
 export const HOME = '/home';
+export const ACCOUNT = '/account';

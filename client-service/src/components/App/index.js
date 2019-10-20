@@ -15,6 +15,7 @@ import SignUp from '../SignUp';
 import Subscribe from '../Subscribe';
 
 import * as ROUTES from '../../constants/routes';
+import { withFirebase } from '../Firebase';
 
 class App extends Component {
     constructor(props) {
@@ -23,6 +24,12 @@ class App extends Component {
             authUser: null
         };
     }
+
+    componentDidMount() {
+        this.props.firebase.auth.onAuthStateChanged(authUser => {
+            authUser ? this.setState({ authUser }) : this.setState({ authUser: null });
+        });
+    };
 
     render() { 
         return (
@@ -40,4 +47,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default withFirebase(App);
