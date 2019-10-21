@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
 
 import { SignUpLink } from '../SignUp';
@@ -54,8 +54,29 @@ class SignInFormBase extends Component {
 
     return (
       <form onSubmit={this.onSubmit}>
-
-        <button disable={ isInvalid } type='submit'>
+        <div className="form-group">
+          <label htmlFor="email">Email Address</label>
+            <input
+              id="email"
+              className="form-control"
+              name="email"
+              value={ email }
+              onChange={ this.onChange }
+              type="email"
+              placeholder="Email Address"
+            />
+          <label htmlFor="passwordOne">Password</label>
+            <input
+              id="passwordOne"
+              className="form-control"
+              name="password"
+              value={ password }
+              onChange={ this.onChange }
+              type="password"
+              placeholder="Password"
+            />
+      </div>
+        <button className='btn btn-primary' disable={ isInvalid } type='submit'>
           Sign In
         </button>
         { error && <p>{ error.message }</p>}
