@@ -1,5 +1,5 @@
 import AuthUserContext from './context';
 import withAuthentication from './withAuthenticaton';
-import withAuthorzation from './withAuthorization';
+import withAuthorization from './withAuthorization';
 
 export { AuthUserContext, withAuthentication, withAuthorization };
