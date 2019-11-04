@@ -29,6 +29,9 @@ const NavigationAuth = () => (
                 <Link to={ROUTES.SUBSCRIBE}>Subscribe Client</Link>
             </li>
             <li>
+                <Link to={ROUTES.ADMIN_ROUTINES}>Admin</Link>
+            </li>
+            <li>
                 <SignOutButton />
             </li>
         </ul>
